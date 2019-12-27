@@ -1,0 +1,393 @@
+getwd()
+setwd("C:/Users/Luis/Desktop/DATATON")
+library(rjson)
+
+BULK <- fromJSON(file = "s2-edomex.json")
+
+datos<-BULK
+
+
+##################id##############
+
+BULK[1][[1]]$id
+
+id<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  id[cont,]<-BULK[cont][[1]]$id
+  cont <- cont + 1
+} 
+
+id<-as.data.frame(id)
+colnames(id)<-"ID"
+
+
+#####################FECHA CAPTURA############
+
+BULK[1][[1]]$fechaCaptura
+
+
+FechaCaptura<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  FechaCaptura[cont,]<-BULK[cont][[1]]$fechaCaptura
+  cont <- cont + 1
+} 
+
+FechaCaptura<-as.data.frame(FechaCaptura)
+colnames(FechaCaptura)<-"FechaCaptura"
+
+
+base<-cbind(id,FechaCaptura)
+
+################EjercicioFiscal#######
+
+BULK[1][[1]]$ejercicioFiscal
+
+
+EjercicioFiscal<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  EjercicioFiscal[cont,]<-BULK[cont][[1]]$ejercicioFiscal
+  cont <- cont + 1
+} 
+
+EjercicioFiscal<-as.data.frame(EjercicioFiscal)
+colnames(EjercicioFiscal)<-"EjercicioFiscal"
+
+###########fechaInicial########
+BULK[1][[1]]$periodoEjercicio$fechaInicial
+
+
+FechaInicial<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  FechaInicial[cont,]<-BULK[cont][[1]]$periodoEjercicio$fechaInicial
+  cont <- cont + 1
+} 
+
+FechaInicial<-as.data.frame(FechaInicial)
+colnames(FechaInicial)<-"FechaInicial"
+
+###############fechaFinal############# 
+
+BULK[1][[1]]$periodoEjercicio$fechaFinal
+
+
+FechaFinal<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  FechaFinal[cont,]<-BULK[cont][[1]]$periodoEjercicio$fechaFinal
+  cont <- cont + 1
+} 
+
+FechaFinal<-as.data.frame(FechaFinal)
+colnames(FechaFinal)<-"FechaFinal"
+############Ramo############
+BULK[1][[1]]$idRamo
+
+IDRamo<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  IDRamo[cont,]<-BULK[cont][[1]]$idRamo
+  cont <- cont + 1
+} 
+
+IDRamo<-as.data.frame(IDRamo)
+colnames(IDRamo)<-"IDRamo"
+
+class<-c(BULK[1][[1]])
+
+
+############Ramo#####
+
+BULK[1][[1]]$ramo
+
+
+Ramo<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  Ramo[cont,]<-BULK[cont][[1]]$ramo
+  cont <- cont + 1
+} 
+
+Ramo<-as.data.frame(Ramo)
+colnames(Ramo)<-"Ramo"
+
+
+##############rfc#####
+
+BULK[1][[1]]$rfc
+
+
+RFC<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  RFC[cont,]<-BULK[cont][[1]]$rfc
+  cont <- cont + 1
+} 
+
+RFC<-as.data.frame(RFC)
+colnames(RFC)<-"RFC"
+################CURP##########
+
+
+BULK[1][[1]]$rfc
+
+
+CURP<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  CURP[cont,]<-BULK[cont][[1]]$curp
+  cont <- cont + 1
+} 
+
+CURP<-as.data.frame(CURP)
+colnames(CURP)<-"CURP"
+
+##############Nombres#############
+
+BULK[1][[1]]$nombres
+
+
+Nombres<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  Nombres[cont,]<-BULK[cont][[1]]$nombres
+  cont <- cont + 1
+} 
+
+Nombres<-as.data.frame(Nombres)
+colnames(Nombres)<-"Nombres"
+
+############# Primer Apellido##############
+BULK[1][[1]]$primerApellido
+
+
+PrimerApellido<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  PrimerApellido[cont,]<-BULK[cont][[1]]$primerApellido
+  cont <- cont + 1
+} 
+
+PrimerApellido<-as.data.frame(PrimerApellido)
+colnames(PrimerApellido)<-"PrimerApellido"
+
+################Segundo Apellido #########
+
+BULK[1][[1]]$segundoApellido
+
+
+SegundoApellido<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  SegundoApellido[cont,]<-BULK[cont][[1]]$segundoApellido
+  cont <- cont + 1
+} 
+
+SegundoApellido<-as.data.frame(SegundoApellido)
+colnames(SegundoApellido)<-"SegundoApellido"
+
+################Genero###########
+
+BULK[1][[1]]$genero
+
+
+Genero<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  Genero[cont,]<-BULK[cont][[1]]$genero
+  cont <- cont + 1
+} 
+
+Genero<-as.data.frame(Genero)
+colnames(Genero)<-"Genero"
+
+##############Nombre de la Institución#########
+
+
+BULK[1][[1]]$institucionDependencia$nombre
+
+
+Institucion<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  Institucion[cont,]<-BULK[cont][[1]]$institucionDependencia$nombre
+  cont <- cont + 1
+} 
+
+Institucion<-as.data.frame(Institucion)
+colnames(Institucion)<-"Institucion"
+
+##############Siglas_Institucion
+
+
+BULK[1][[1]]$institucionDependencia$siglas
+
+
+Siglas_Institucion<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  Siglas_Institucion[cont,]<-BULK[cont][[1]]$institucionDependencia$siglas
+  cont <- cont + 1
+} 
+
+Siglas_Institucion<-as.data.frame(Siglas_Institucion)
+colnames(Siglas_Institucion)<-"Siglas_Institucion"
+
+##################Clave_Institución
+BULK[1][[1]]$institucionDependencia$clave
+
+
+Clave_Institucion<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  Clave_Institucion[cont,]<-BULK[cont][[1]]$institucionDependencia$clave
+  cont <- cont + 1
+} 
+
+Clave_Institucion<-as.data.frame(Clave_Institucion)
+colnames(Clave_Institucion)<-"Clave_Institucion"
+
+###########Puesto_TipoArea
+
+BULK[1][[1]]$tipoArea
+
+
+Puesto_TipoArea<-matrix(data = NA,nrow = length(datos),ncol = 1)
+cont<-1
+
+while (cont<=length(datos)) {
+  Puesto_TipoArea[cont,]<-BULK[cont][[1]]$tipoArea
+  cont <- cont + 1
+} 
+
+Puesto_TipoArea<-as.data.frame(Puesto_TipoArea)
+colnames(Puesto_TipoArea)<-"Puesto_TipoArea"
+
+#################NivelResponsabilidad
+NivelResponsabilidad<-matrix(data = NA,nrow = length(datos),ncol = 2)
+
+cont<-1
+while(cont<=length(datos)) {
+  if (length(BULK[cont][[1]]$nivelResponsabilidad)<3) {
+    if(class(BULK[cont][[1]]$nivelResponsabilidad) == "list") {
+      
+      BULK[cont][[1]]$nivelResponsabilidad<-0
+      
+      NivelResponsabilidad[cont,]<-BULK[cont][[1]]$nivelResponsabilidad
+      
+      
+    }else{ 
+      if (length(BULK[cont][[1]]$nivelResponsabilidad)==3) {
+        z<-unlist(BULK[cont][[1]]$nivelResponsabilidad)
+        v<-t(as.matrix(z[1:2]))
+        NivelResponsabilidad[cont,]<-v
+      
+      }
+      
+      NivelResponsabilidad[cont,]<-BULK[cont][[1]]$nivelResponsabilidad
+    }
+  }
+  cont <- cont + 1
+  cat(cont,"\n")
+}
+
+suma<-1
+es3<-0
+while (suma<=length(datos)) {
+  cat(length(BULK[suma][[1]]$nivelResponsabilidad), "\n")
+  suma<-suma+1
+if (length(BULK[suma][[1]]$nivelResponsabilidad)==3) {
+  es3<-es3+1
+  cat(suma," \n ")
+  
+  
+}
+cat("Iguales a 3", es3)
+}
+
+
+
+
+if(class(BULK[cont][[1]]$nivelResponsabilidad) == "list") {
+    
+    BULK[cont][[1]]$nivelResponsabilidad<-0
+    
+    NivelResponsabilidad[cont,]<-BULK[cont][[1]]$nivelResponsabilidad
+    cont<-cont+1
+    
+  }else{
+    NivelResponsabilidad[cont,]<-BULK[cont][[1]]$nivelResponsabilidad
+    cont <- cont + 1
+  }
+  
+} 
+
+
+
+N_A<-0
+
+
+
+
+
+
+NivelResponsabilidad<-as.data.frame(NivelResponsabilidad)
+colnames(NivelResponsabilidad)<-c("NivelResponsabilidad_1","NivelResponsabilidad_2")
+
+BULK[cont][[1]]$nivelResponsabilidad<-0
+
+NivelResponsabilidad[cont,]<-BULK[cont][[1]]$nivelResponsabilidad
+
+experimento<-matrix(data=NA,nrow = length(datos),ncol = 2)
+experimento[1,]<-BULK[18][[1]]$nivelResponsabilidad
+experimento[2,]<-BULK[2][[1]]$nivelResponsabilidad
+
+experimento<-matrix(data = 1,nrow = 1000,ncol = 1)
+
+experimento<-BULK[200][[1]]$nivelResponsabilidad
+experimento<-unlist(experimento)
+experimento<-as.matrix(experimento)
+experimento<-t(experimento)
+
+BULK[100][[1]]$nivelResponsabilidad<-0
+
+
+experimento[2,]<-BULK[100][[1]]$nivelResponsabilidad
+lol<-BULK[120][[1]]$nivelResponsabilidad
+
+N<-matrix(data = seq(1,2),nrow = length(datos),ncol = 2)
+N[2,]
+
+
+if(class(BULK[20][[1]]$nivelResponsabilidad) == "list") {
+    print("HOLA")
+  }
+  
+  
+
+
+base<-cbind(id,FechaCaptura,EjercicioFiscal,
+            FechaInicial,FechaFinal,IDRamo,
+            Ramo,RFC,CURP,Nombres,PrimerApellido,
+            SegundoApellido,Genero,Institucion,
+            Siglas_Institucion,Clave_Institucion,
+            Puesto_TipoArea,)
